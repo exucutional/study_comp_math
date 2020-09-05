@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import matplotlib.pyplot as plt
@@ -29,6 +29,9 @@ class DiffMath:
             return sum / h
         
         return derivative
+
+    def get_derivative_count(self):
+        return len(self.coeffs)
     
     def calc_derivative(self, f, x, h, num):
         return self.get_derivative(num)(f, x, h)
@@ -45,7 +48,7 @@ class DiffMath:
         return errors
 
 
-# In[ ]:
+# In[2]:
 
 
 argument = 5
@@ -73,24 +76,18 @@ f_name = ['sin(x*x)', 'cos(sin(x))', 'exp(sin(cos(x)))', 'ln(x+3)', 'sqrt(x+3)']
 
 x = dm.get_h_list(h_pow)
 
-for i in range(5):
+for i in range(len(f_list)):
     plot = plt.figure(num=f'Error for {f_name[i]}')
-    y1 = dm.get_error_list(f_list[i], f_deriv_list[i], argument, 0, h_pow)
-    y2 = dm.get_error_list(f_list[i], f_deriv_list[i], argument, 1, h_pow)
-    y3 = dm.get_error_list(f_list[i], f_deriv_list[i], argument, 2, h_pow)
-    y4 = dm.get_error_list(f_list[i], f_deriv_list[i], argument, 3, h_pow)
-    y5 = dm.get_error_list(f_list[i], f_deriv_list[i], argument, 4, h_pow)
+    for j in range(dm.get_derivative_count()):
+        y = dm.get_error_list(f_list[i], f_deriv_list[i], argument, j, h_pow)
+        plt.plot(x, y, marker='d', label=f'method {j+1}')
+
     plt.ylabel('error')
-    plt.yscale("log")
+    plt.yscale('log')
     plt.xlabel('step')
-    plt.xscale("log")
-    plt.plot(x, y1, marker='d', label='f1')
-    plt.plot(x, y2, marker='d', label='f2')
-    plt.plot(x, y3, marker='d', label='f3')
-    plt.plot(x, y4, marker='d', label='f4')
-    plt.plot(x, y5, marker='d', label='f5')
+    plt.xscale('log')
     plt.grid()
-    plt.title(f"Dependence of the error on the step for {f_name[i]}")
+    plt.title(f'Dependence of the error on the step for {f_name[i]}')
     plt.legend()
              
 plt.show()
