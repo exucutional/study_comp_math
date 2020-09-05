@@ -1,2 +1,3 @@
-# study_comp_math
-MIPT Computational mathematics course
+# MIPT Computational mathematics course
+
+* Lab 1: Derivative computation error for various methods 
