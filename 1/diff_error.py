@@ -1,6 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# # Lab 01
+# ### Derivative computation error for methods:
+
+# $$f'_1(x_0)=\frac{f(x_0+h)-f(x_0)}{h}$$
+
+# $$f'_2(x_0)=\frac{f(x_0)-f(x_0-h)}{h}$$
+
+# $$f'_3(x_0)=\frac{f(x_0+h)-f(x_0-h)}{2h}$$
+
+# $$f'_4(x_0)=\frac{4}{3}\frac{f(x_0+h)-f(x_0-h)}{2h}-\frac{1}{3}\frac{f(x_0+2h)-f(x_0-2h)}{4h}$$
+
+# $$f'_5(x_0)=\frac{3}{2}\frac{f(x_0+h)-f(x_0-h)}{2h}-\frac{3}{5}\frac{f(x_0+2h)-f(x_0-2h)}{4h}+\frac{1}{10}\frac{f(x_0+3h)-f(x_0-3h)}{6h}$$
+
 # In[1]:
 
 
@@ -56,7 +69,7 @@ h_pow = 21
 dm = DiffMath()
 
 f1 = lambda x: sin(x * x)
-f1_d = lambda x: 2 * x * cos(x)
+f1_d = lambda x: 2 * x * cos(x*x)
 
 f2 = lambda x: cos(sin(x))
 f2_d = lambda x: -cos(x) * sin(sin(x))
