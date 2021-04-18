@@ -174,7 +174,7 @@ N_res = 11
 limit = (0, 1)
 tma = TMA()
 tma_res = tma.solve(k, q, f, d1, e1, d2, e2, acc, N, limit)
-res = (tma_res[0][0::int(N/N_res)][:N_res], tma_res[1][0::int(N/N_res)][:N_res])
+res = (tma_res[0][0::int(N/(N_res-1))][:N_res], tma_res[1][0::int(N/(N_res-1))][:N_res])
 #res = tma_res
 df = pd.DataFrame({"x": res[0], "u": res[1]})
 print(df)
