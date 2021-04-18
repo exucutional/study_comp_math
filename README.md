@@ -5,4 +5,5 @@
 * Lab 3: Solving a system of nonlinear equations
 * Lab 4: Solving a system of ordinary differential equations
 * Lab 5: Solving a system of rigid ordinary differential equations
+* Lab 6: Solving boundary value problem with tridiagonal matrix algorithm
 
