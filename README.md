@@ -6,4 +6,5 @@
 * Lab 4: Solving a system of ordinary differential equations
 * Lab 5: Solving a system of rigid ordinary differential equations
 * Lab 6: Solving boundary value problem with tridiagonal matrix algorithm
+* Lab 7: Solving boundary value problem with shooting method
 
